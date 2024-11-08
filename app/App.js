@@ -5,3 +5,8 @@ class App {
   JotsController = new JotsController
 
 }
+
+
+const app = new App()
+// @ts-ignore
+window.app = app
