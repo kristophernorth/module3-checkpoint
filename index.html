@@ -12,17 +12,19 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
+  <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
+    defer></script>
   <title>module3-checkpoint</title>
 </head>
 
-<body>
+<body class="debug">
   <!-- SECTION -->
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
       <a class="navbar-brand" href="#">
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
           loading="lazy">
-        <span class="ml-2">module3-checkpoint</span>
+        <span class="ml-2">Jot...</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,12 +40,85 @@
     </nav>
   </header>
 
-  <!-- SECTION -->
   <main>
-      <!-- <section id="router-view"></section> -->
+    <section class="container-fluid">
+      <div class="row">
+        <!-- ANCHOR - left main column -->
+        <div class="col-md-3 border border-dark">
+          <!-- ANCHOR - upper left form -->
+          <form class="row border border-dark m-1 p-2">
+            <div class="col">
+              <p class="text-end">
+                <span>0</span><span> Jots</span>
+              </p>
+              <div class="form-group">
+                <label for="color-selector">Color selector</label>
+                <select class="form-control" id="color-selector">
+                  <option><span class="text-primary">Blue</span></option>
+                  <option><span class="text-secondary">Gray</span></option>
+                  <option><span class="text-success"></span>Green</option>
+                  <option><span class="text-danger"></span>Red</option>
+                  <option><span class="text-danger">Yellow</span></option>
+                </select>
+              </div>
+              <div class="formgroup">
+                <label for="myColor" class="form-label">Color picker</label>
+                <input type="color" class="form-control form-control-color" id="myColor" value="#CCCCCC"
+                  title="Choose a color">
+              </div>
+              <div class="form-group">
+                <label for="title-input">Title input</label>
+                <textarea class="form-control" id="title-input" rows="1"></textarea>
+              </div>
+              <div class="py-2">
+                <button type="submit" class="btn btn-primary">Create +</button>
+              </div>
+            </div>
+          </form>
+          <!-- ANCHOR - section where note cards pop up on left side -->
+          <div>
+            <!-- ANCHOR - this is a card -->
+            <div class="card border border-dark m-1 p-2">
+              <div class="col">
+                <h5>Notes title</h5>
+              </div>
+              <div class="col text-end">
+                <span>Date</span>
+              </div>
+              <p>Notes qawefqwegfwqergwergwer</p>
+              <p>Notes qawefqwegfwqergwergwer</p>
+              <p>Notes qawefqwegfwqergwergwer</p>
+            </div>
+          </div>
+        </div>
+        <!-- ANCHOR - right main column -->
+        <div class="col-md-9 border border-dark p-2">
+          <div class="row p-2">
+            <div class="col-md-1">Color flag</div>
+            <div class="col-md-8">
+              <h3>Notes title</h3>
+              <p>Created-on date</p>
+              <p>Last updated-on date</p>
+            </div>
+            <div class="col-md-3">
+              <button type="submit" class="btn btn-primary">Delete</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+          <div class="row p-4">
+            <!-- ANCHOR - active notes display and input -->
+            <form class="col-md-12 p-2">
+              <div class="form-group">
+                <label for="note-input">Title input</label>
+                <textarea class="form-control" id="notes-input" rows="20"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- SECTION -->
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
       <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
