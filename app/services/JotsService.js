@@ -30,16 +30,15 @@ class JotsService {
 
   deleteActiveJot(jotId) {
 
-    const activeJot = AppState.activeJot
+    const activeJot = AppState.jots.find(jot => jot.id == jotId)
     const indexToRemove = AppState.jots.indexOf(activeJot)
-    // const indexToRemove = AppState.jots.findIndex(jot => jot.id == jotId)
-    AppState.activeJot = null
-    // console.log('deleting jot', indexToRemove);
+    console.log('deleting jot', activeJot, indexToRemove);
     AppState.jots.splice(indexToRemove, 1)
     this.saveJots()
 
     // const activeJot = AppState.activeJot
     // const indexToRemove = AppState.jots.indexOf(activeJot)
+    // AppState.activeJot = null
     // AppState.jots.splice(indexToRemove, 1)
     // this.saveJots()
   }
