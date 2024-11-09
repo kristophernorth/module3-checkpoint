@@ -19,6 +19,9 @@ export class JotsController {
     jots.forEach(jot => jotsContent += jot.CardTemplate)
     const jotCardElm = document.getElementById('jot-cards')
     jotCardElm.innerHTML = jotsContent
+
+    const jotCountElm = document.getElementById('jot-count')
+    jotCountElm.innerText = AppState.jots.length.toString()
   }
 
   drawActiveJotDetails() {
