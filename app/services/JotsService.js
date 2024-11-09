@@ -13,10 +13,11 @@ class JotsService {
     this.saveJots()
   }
 
-  setActiveJot(id) {
-    const foundJot = AppState.jots.find(jot => jot.id == id)
-    AppState.activeJot = foundJot
-    console.log(AppState.activeJot);
+  setActiveJot(jotId) {
+    const selectedJot = AppState.jots.find(jot => jot.id == jotId)
+    console.log('come on man', selectedJot);
+    AppState.activeJot = selectedJot
+    console.log(AppState);
   }
 
   saveActiveJotDescription(newDescription) {

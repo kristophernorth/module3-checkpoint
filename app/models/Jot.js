@@ -10,6 +10,7 @@ export class Jot {
     this.color = data.color
     this.title = data.title
     this.description = data.description || ''
+    // the description line above had: || ''
   }
 
   get CardTemplate() {
@@ -35,7 +36,7 @@ export class Jot {
       <div class="col-md-8">
         <h3 class="${this.color}">${this.title}</h3>
         <p>Created on: ${this.shortReportedDate}</p>
-        <pLast updated: ${this.formattedUpdatedAt}</p>
+        <p>Last updated: ${this.formattedUpdatedAt}</p>
       </div>
       </form>
       `
