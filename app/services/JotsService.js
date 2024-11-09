@@ -10,6 +10,14 @@ class JotsService {
     AppState.jots.unshift(jot)
     // this.saveJots()
   }
+
+  setActiveJot(id) {
+    const foundJot = AppState.jots.find(jot => jot.id == id)
+    AppState.activeJot = foundJot
+    console.log(AppState.activeJot);
+  }
+
+
 }
 
 export const jotsService = new JotsService()

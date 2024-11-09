@@ -21,4 +21,19 @@ export class JotsController {
     jotCardElm.innerHTML = jotsContent
   }
 
+  drawActiveJotDetails() {
+    console.log('drawing active card details is working');
+    const jots = AppState.jots
+    let jotsContent = ''
+    jots.forEach(jot => jotsContent += jot.ActiveJotTemplate)
+    const activeCardElm = document.getElementById('active-card')
+    activeCardElm.innerHTML = AppState.activeJot.ActiveJotTemplate
+  }
+
+  setActiveJot(id) {
+    console.log('setting active jot', id);
+    jotsService.setActiveJot(id)
+    this.drawActiveJotDetails()
+  }
+
 }

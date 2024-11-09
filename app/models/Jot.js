@@ -13,9 +13,9 @@ export class Jot {
   }
 
   get CardTemplate() {
-    return /*html*/ `
+    return `
 
-    <div class="card border border-dark m-1 p-2">
+    <div onclick="app.JotsController.setActiveJot('${this.id}')" class="card border border-dark m-1 p-2">
       <div class="col">
         <h5 class="${this.color}">${this.title}</h5>
       </div>
@@ -28,7 +28,7 @@ export class Jot {
   }
 
   get ActiveJotTemplate() {
-    return /*html*/ `
+    return `
 
     <h3 class="${this.color}">${this.title}</h3>
     <p>${this.createdDate}</p>

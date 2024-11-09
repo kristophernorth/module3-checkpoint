@@ -23,6 +23,8 @@ class ObservableAppState extends EventEmitter {
 
   ]
 
+  activeJot = null
+
   /**@type {import('./models/Example.js').Example[]} */
   examples = []
 }
