@@ -9,9 +9,11 @@ export class JotsController {
   constructor() {
     console.log('jots working???');
     this.drawJots()
-    // AppState.on('activeJot', this.drawActiveJotDetails)
+    AppState.on('activeJot', this.drawActiveJotDetails)
     AppState.on('jots', this.drawJots)
-    // jotsService.loadJots()
+    jotsService.loadJots()
+    // this.drawActiveJotDetails()
+    //for some reason this is preventing the active title from grabbing title color from active card
   }
 
   createJot() {
@@ -41,15 +43,34 @@ export class JotsController {
     jots.forEach(jot => jotsContent += jot.ActiveJotTemplate)
     const activeCardElm = document.getElementById('active-card')
     activeCardElm.innerHTML = AppState.activeJot.ActiveJotTemplate
+
+    jots.forEach(jot => jotsContent += jot.ActiveJotDescription)
+    const activeDescriptionElm = document.getElementById('description-form')
+    activeDescriptionElm.innerHTML = AppState.activeJot.ActiveJotDescription
   }
 
-  setActiveJot(id) {
-    console.log('setting active jot', id);
-    jotsService.setActiveJot(id)
-    this.drawActiveJotDetails()
+  setActiveJot(jotId) {
+    console.log('setting active jot', jotId);
+    jotsService.setActiveJot(jotId)
+    // this.drawActiveJotDetails()
   }
 
+  saveActiveJotDescription() {
+    event.preventDefault()
+    console.log('saving active jot');
+    const form = event.target
+    const newDescription = form.description.value
+    console.log('new cool description', newDescription);
+    jotsService.saveActiveJotDescription(newDescription)
+  }
 
+  deleteActiveJot(jotId) {
+    console.log('deleting');
+    const confirmed = confirm('Do you really want to delete this jot?')
+    if (confirmed == false) return
+
+    jotsService.deleteActiveJot(jotId)
+  }
 
 }
 

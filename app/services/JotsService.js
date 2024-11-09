@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Jot } from "../models/Jot.js"
+import { Pop } from "../utils/Pop.js";
 import { loadState, saveState } from "../utils/Store.js";
 
 
@@ -18,6 +19,30 @@ class JotsService {
     console.log(AppState.activeJot);
   }
 
+  saveActiveJotDescription(newDescription) {
+    const activeJot = AppState.activeJot
+    activeJot.description = newDescription
+    activeJot.updatedDate = new Date()
+    console.log(AppState);
+    this.saveJots
+    AppState.emit('activeJot')
+  }
+
+  deleteActiveJot(jotId) {
+
+    const activeJot = AppState.activeJot
+    const indexToRemove = AppState.jots.indexOf(activeJot)
+    // const indexToRemove = AppState.jots.findIndex(jot => jot.id == jotId)
+    AppState.activeJot = null
+    // console.log('deleting jot', indexToRemove);
+    AppState.jots.splice(indexToRemove, 1)
+    this.saveJots()
+
+    // const activeJot = AppState.activeJot
+    // const indexToRemove = AppState.jots.indexOf(activeJot)
+    // AppState.jots.splice(indexToRemove, 1)
+    // this.saveJots()
+  }
 
   saveJots() {
     const jots = AppState.jots
