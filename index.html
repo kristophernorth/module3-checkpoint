@@ -43,24 +43,25 @@
         <!-- ANCHOR - left main column -->
         <div class="col-md-4 border border-dark">
           <!-- ANCHOR - upper left form -->
-          <form class="row border border-dark m-1 p-2">
-            <div class="col">
+          <form onsubmit="app.JotsController.createJot()" class="row border border-dark m-1 p-2">
+            <div>
               <p class="text-end">
                 <span id="jot-count">0</span><span> Jots</span>
               </p>
               <div class="form-group">
-                <label for="color-selector">Color selector</label>
-                <select class="form-control" id="color-selector">
-                  <option>🟦 Blue</option>
-                  <option>⬜️ Gray</option>
-                  <option>🟩 Green</option>
-                  <option>🟥 Red</option>
-                  <option>🟨 Yellow</option>
+                <label for="color-selector">Choose color</label>
+                <select name="color" class="form-control" id="color-selector">
+                  <option value="blue">🟦 Blue</option>
+                  <option value="gray">⬜️ Gray</option>
+                  <option value="green">🟩 Green</option>
+                  <option value="red">🟥 Red</option>
+                  <option value="yellow">🟨 Yellow</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="title-input">Title input</label>
-                <textarea class="form-control" id="title-input" rows="1"></textarea>
+                <label for="title-input">Create title</label>
+                <textarea name="title" class="form-control" id="title-input" rows="1" minlength="3"
+                  maxlength="15"></textarea>
               </div>
               <div class="py-2">
                 <button type="submit" class="btn btn-primary">Create +</button>
@@ -102,7 +103,10 @@
             <form class="col-md-12 p-2">
               <div class="form-group">
                 <label for="note-input">Title input</label>
-                <textarea class="form-control" id="notes-input" rows="20"></textarea>
+                <textarea class="form-control" id="note-input" rows="20"></textarea>
+              </div>
+              <div class="text-end">
+                <span>0</span><span> words</span>
               </div>
             </form>
           </div>
