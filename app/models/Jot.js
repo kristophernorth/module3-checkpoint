@@ -51,7 +51,7 @@ export class Jot {
         <textarea name="description" class="form-control" id="description-input" rows="20">${this.description}</textarea>
         <div class="text-end py-2">
           <button type="submit" class="btn btn-info m-1 order-sm-12">Save</button>
-          <button type="button" onclick="app.JotsController.deleteActiveJot()"
+          <button type="button" onclick="app.JotsController.deleteActiveJot('${this.id}')"
             class="btn btn-outline-danger m-1 order-sm-1">Delete</button>
         </div>
       </div>

@@ -66,9 +66,9 @@ export class JotsController {
   }
 
   deleteActiveJot(jotId) {
-    console.log('deleting');
     const confirmed = confirm('Do you really want to delete this jot?')
     if (confirmed == false) return
+    console.log('deleting', jotId);
 
     jotsService.deleteActiveJot(jotId)
   }
