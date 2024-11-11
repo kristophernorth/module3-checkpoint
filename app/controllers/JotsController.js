@@ -62,6 +62,7 @@ export class JotsController {
     const newDescription = form.description.value
     console.log('new cool description', newDescription);
     jotsService.saveActiveJotDescription(newDescription)
+    this.drawJots()
   }
 
   deleteActiveJot(jotId) {

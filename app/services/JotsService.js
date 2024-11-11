@@ -8,7 +8,7 @@ import { loadState, saveState } from "../utils/Store.js";
 class JotsService {
   createJot(jotData) {
     const jot = new Jot(jotData)
-    console.log('the service is working', Jot);
+    console.log('the service is working', jot);
     AppState.jots.unshift(jot)
     this.saveJots()
   }
@@ -25,12 +25,11 @@ class JotsService {
     activeJot.description = newDescription
     activeJot.updatedDate = new Date()
     console.log(AppState);
-    this.saveJots
+    this.saveJots()
     AppState.emit('activeJot')
   }
 
   deleteActiveJot(jotId) {
-
     const activeJot = AppState.jots.find(jot => jot.id == jotId)
     const indexToRemove = AppState.jots.indexOf(activeJot)
     console.log('deleting jot', activeJot, indexToRemove);
